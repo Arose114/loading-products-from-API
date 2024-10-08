@@ -1,4 +1,4 @@
-# Load more Products in React
+# Loading Products from API in React
 
 This ia a react project to load products from API. I am fetching the data from Dummy Json.
 

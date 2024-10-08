@@ -11,10 +11,10 @@ async function fetchProducts() {
 
   try {
     setLoading(true)
-    const response= await fetch(`https://dummyjson.com/products?limit=20&skip=${count ===0 ? 0 : count +20}`)
+    const response= await fetch(`https://dummyjson.com/products?limit=20&skip=${count ===0 ? 0 : count + 20}`)
     const result= await response.json()
     if (result && result.products && result.products.length){
-      setProducts(result.products)
+      setProducts((prevProducts)=>[...prevProducts,...result.products])
       setLoading(false)
     }
     
@@ -29,7 +29,7 @@ async function fetchProducts() {
   useEffect(()=>{
     fetchProducts();
 
-  }, [])
+  }, [count])
 
   if(loading){
     return <div>Loading....please wait</div>
@@ -47,7 +47,7 @@ async function fetchProducts() {
         
         : null
 }</div>
-<div><button className='load-more'>Load More Products</button></div>
+<div className='load-more'><button onClick={()=>setCount(count + 1)} >Load More Products</button></div>
     </div>
   )
 }

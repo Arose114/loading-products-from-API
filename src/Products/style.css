@@ -31,6 +31,10 @@ gap: 20px;
 
 .load-more{
     align-self: center;
+  
+}
+
+.load-more button{
     background-color: blue;
     width: 200px;
     height: 60px;
